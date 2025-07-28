@@ -41,4 +41,11 @@ public class User extends BaseEntity {
 
     @Column(unique = true)
     private String email;
+
+    /**
+     * Mỗi người dùng thuộc 1 nhóm quyền
+     */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_group_id")
+    private RoleGroup roleGroup;
 }
